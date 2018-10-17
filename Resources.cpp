@@ -12,7 +12,7 @@ const sf::Texture& Resources::getTexture(const std::string& textureName)
     if(m_textures.find(textureName) != m_textures.end())
         success = true;
     else
-        success = add(textureName, resouce_type::texture);
+        success = add(textureName, resource_type::texture);
     if(success)
         return m_textures[textureName];
     return m_textures["error"];
@@ -24,7 +24,7 @@ const sf::SoundBuffer& Resources::getSound(const std::string& fileName)
     if(m_sounds.find(fileName) != m_sounds.end())
         success = true;
     else
-        success = add(fileName, resouce_type::sound);
+        success = add(fileName, resource_type::sound);
     if(success)
         return m_sounds[fileName];
     return m_sounds["error"];
@@ -42,9 +42,9 @@ Resources::Resources()
     m_font.loadFromFile("res/pixel.ttf");
 }
 
-bool Resources::add(const std::string& fileName, resouce_type type)
+bool Resources::add(const std::string& fileName, resource_type type)
 {
-    if(type == resouce_type::sound)
+    if(type == resource_type::sound)
     {
         sf::SoundBuffer b;
         if(b.loadFromFile("res/Sounds/" + fileName + ".wav"))
@@ -54,7 +54,7 @@ bool Resources::add(const std::string& fileName, resouce_type type)
         }
         return false;
     }
-    else if(type == resouce_type::texture)
+    else if(type == resource_type::texture)
     {
         sf::Texture t;
         if(t.loadFromFile("res/Textures/" + fileName + ".png"))
