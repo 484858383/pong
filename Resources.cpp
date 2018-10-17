@@ -37,8 +37,8 @@ const sf::Font& Resources::getFont() const
 
 Resources::Resources()
 {
-    add("error", resouce_type::texture);
-    add("error", resouce_type::sound);
+    add("error", resource_type::texture);
+    add("error", resource_type::sound);
     m_font.loadFromFile("res/pixel.ttf");
 }
 
